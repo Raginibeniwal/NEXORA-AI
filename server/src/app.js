@@ -19,6 +19,10 @@ import cors from 'cors';
 
 // Import route files
 import healthRoutes from './routes/health.js';
+import productRoutes from './routes/products.js';
+import customerRoutes from './routes/customers.js';
+import salesRoutes from './routes/sales.js';
+import inventoryRoutes from './routes/inventory.js';
 
 // Create the Express app
 const app = express();
@@ -42,6 +46,12 @@ app.use(cors());
 // Mount the health route at /api/health
 // When someone visits GET /api/health, Express runs the health router
 app.use('/api/health', healthRoutes);
+
+// Phase 2: Data endpoints
+app.use('/api/products', productRoutes);
+app.use('/api/customers', customerRoutes);
+app.use('/api/sales', salesRoutes);
+app.use('/api/inventory', inventoryRoutes);
 
 // ========================
 // 404 Handler
